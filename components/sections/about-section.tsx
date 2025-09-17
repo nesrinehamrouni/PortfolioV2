@@ -58,7 +58,7 @@ export function AboutSection() {
                 </div>
               </div>
               <div className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded-full">
-                Advanced
+                Certified
               </div>
             </div>
           </div>
@@ -74,7 +74,7 @@ export function AboutSection() {
             {[
               { name: "Arabic", level: "Native" },
               { name: "French", level: "Fluent" },
-              { name: "English", level: "Advanced" },
+              { name: "English", level: "Certified" },
               { name: "Turkish", level: "Fluent Speaker" },
               { name: "Spanish", level: "Beginner" }
             ].map((language, index) => (

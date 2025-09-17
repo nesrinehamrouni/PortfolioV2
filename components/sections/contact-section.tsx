@@ -1,10 +1,76 @@
+"use client"
+
+import { useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Mail, MapPin, Phone, Send } from "lucide-react"
+import { useToast } from "@/hooks/use-toast"
 
 export function ContactSection() {
+  const { toast } = useToast()
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+
+    try {
+      // Send email via API
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const result = await response.json()
+
+      if (response.ok) {
+        // Show success notification
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for your message. I'll get back to you soon!",
+        })
+
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        })
+      } else {
+        throw new Error(result.error || 'Failed to send message')
+      }
+    } catch (error) {
+      console.error('Error sending email:', error)
+      toast({
+        title: "Error",
+        description: "There was an error sending your message. Please try again later.",
+        variant: "destructive",
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
   const contactInfo = [
     {
       icon: Mail,
@@ -72,13 +138,21 @@ export function ContactSection() {
         <Card className="p-6 bg-card border-border">
           <h3 className="font-playfair text-2xl font-semibold text-foreground mb-6">Send a Message</h3>
 
-          <form className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
                   Name
                 </label>
-                <Input id="name" placeholder="Your name" className="bg-background border-border" />
+                <Input 
+                  id="name" 
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  placeholder="Your name" 
+                  className="bg-background border-border" 
+                  required
+                />
               </div>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
@@ -86,9 +160,13 @@ export function ContactSection() {
                 </label>
                 <Input
                   id="email"
+                  name="email"
                   type="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   placeholder="your.email@example.com"
                   className="bg-background border-border"
+                  required
                 />
               </div>
             </div>
@@ -97,7 +175,14 @@ export function ContactSection() {
               <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
                 Subject
               </label>
-              <Input id="subject" placeholder="Project inquiry" className="bg-background border-border" />
+              <Input 
+                id="subject" 
+                name="subject"
+                value={formData.subject}
+                onChange={handleInputChange}
+                placeholder="Project inquiry" 
+                className="bg-background border-border" 
+              />
             </div>
 
             <div>
@@ -106,15 +191,23 @@ export function ContactSection() {
               </label>
               <Textarea
                 id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleInputChange}
                 placeholder="Tell me about your project..."
                 rows={5}
                 className="bg-background border-border resize-none"
+                required
               />
             </div>
 
-            <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
+            <Button 
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full bg-accent hover:bg-accent/90 text-accent-foreground disabled:opacity-50"
+            >
               <Send className="h-4 w-4 mr-2" />
-              Send Message
+              {isSubmitting ? "Sending..." : "Send Message"}
             </Button>
           </form>
         </Card>

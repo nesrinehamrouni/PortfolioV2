@@ -29,7 +29,7 @@ export function MobileProfileHeader() {
         <div className="flex-1">
           <h1 className="font-playfair text-xl font-bold text-foreground mb-1">Nesrine Hamrouni</h1>
           <div className="bg-muted rounded-lg px-3 py-1 inline-block">
-            <span className="text-sm font-medium text-muted-foreground">Creative Developer & Designer</span>
+            <span className="text-sm font-medium text-muted-foreground">Freshly Graduated SE & Creative Developer</span>
           </div>
         </div>
         <Button

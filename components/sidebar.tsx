@@ -64,7 +64,7 @@ export function Sidebar({ isMobileMenuOpen, setIsMobileMenuOpen }: SidebarProps)
               />
             </div>
             <h1 className="font-playfair text-2xl font-bold text-sidebar-foreground mb-2">Nesrine Hamrouni</h1>
-            <p className="text-sidebar-foreground/70 text-sm">Creative Developer & Designer</p>
+            <p className="text-sidebar-foreground/70 text-sm">Freshly Graduated SE & Creative Developer</p>
           </div>
 
           {/* Contact Info */}
@@ -92,7 +92,12 @@ export function Sidebar({ isMobileMenuOpen, setIsMobileMenuOpen }: SidebarProps)
                 className="h-9 w-9 text-sidebar-foreground/60 hover:text-accent hover:bg-sidebar-primary/50"
                 asChild
               >
-                <a href={social.href} aria-label={social.label}>
+                <a 
+                  href={social.href} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                >
                   <social.icon className="h-4 w-4" />
                 </a>
               </Button>
