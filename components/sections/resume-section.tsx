@@ -1,5 +1,6 @@
 import type React from "react"
-import { Briefcase, GraduationCap } from "lucide-react"
+import { Briefcase, GraduationCap, Code } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
 
 export function ResumeSection() {
   const experiences = [
@@ -8,10 +9,12 @@ export function ResumeSection() {
       company: "Move2Cloud — Remote, France",
       period: "Feb 2025 – June 2025",
         description:
-          "I worked on a multi-cloud management platform powered by a natural language chatbot. I designed and built a secure, scalable web app with Next.js and Spring Boot, supporting integrations across 3 different cloud providers.<br><br>" +
+          "I worked on a multi-cloud management platform powered by a natural language chatbot. I designed and built the full web app using Next.js and Spring Boot, enabling users to manage cloud resources like EC2 VMs across 3 cloud providers securely and at scale.<br><br>" +
           "✨ Highlights:<br><br>" +
           "• Built real-time dashboards for cloud news & updates.<br><br>" +
-          "• Implemented encrypted sessions and cloud account linking for reliability.",
+          "• Implemented encrypted sessions and cloud account linking for reliability.<br><br>" +
+          "• Engineered DynamoDB schemas and tables for efficient storage of accounts, sessions, and activity logs.<br><br>" +
+          "• Applied prompt engineering to optimize the AI chatbot’s responses."
     },
     {
       title: "Mobile Engineer Intern",
@@ -44,6 +47,49 @@ export function ResumeSection() {
     },
   ]
 
+  const skills = [
+    // Programming Languages
+    "Java",
+    "JavaScript",
+    "TypeScript",
+    "Dart",
+    "Python",
+    "C++",
+    "C",
+    "PHP",
+    
+    // Frontend Frameworks
+    "Next.js",
+    "Angular",
+    "Flutter",
+    "React",
+    "React Native",
+    
+    // Backend & Databases
+    "Spring Boot",
+    "Spring",
+    "Node.js",
+    "Laravel",
+    "MongoDB",
+    "MySQL",
+    "Firebase",
+    "DynamoDB",
+    
+    // Cloud & DevOps
+    "AWS",
+    "Azure",
+    "Docker",
+    "Prometheus",
+    
+    // Data & Analytics
+    "Databricks",
+    "Azure Data Factory",
+    "Azure Synapse",
+    
+    // Tools & Others
+    "Linux",
+    "Figma"
+  ]
 
   const TimelineItem = ({
     children,
@@ -111,6 +157,87 @@ export function ResumeSection() {
         </div>
       </div>
 
+      {/* Skills Section */}
+      <div>
+        <div className="flex items-center gap-3 mb-8">
+          <Code className="w-6 h-6 text-accent" />
+          <h2 className="text-2xl font-bold">Skills & Technologies</h2>
+        </div>
+        
+        <div className="space-y-6">
+          {/* Programming Languages */}
+          <div>
+            <h3 className="text-lg font-semibold text-foreground mb-3">Programming Languages</h3>
+            <div className="flex flex-wrap gap-2">
+              {["Java", "JavaScript", "TypeScript", "Python", "Dart", "C++", "C"].map((skill, index) => (
+                <Badge key={index} variant="secondary" className="px-3 py-1">
+                  {skill}
+                </Badge>
+              ))}
+            </div>
+          </div>
+
+          {/* Frontend & Mobile */}
+          <div>
+            <h3 className="text-lg font-semibold text-foreground mb-3">Frontend & Mobile</h3>
+            <div className="flex flex-wrap gap-2">
+              {["Next.js", "Angular", "Flutter","React", "React Native"].map((skill, index) => (
+                <Badge key={index} variant="secondary" className="px-3 py-1">
+                  {skill}
+                </Badge>
+              ))}
+            </div>
+          </div>
+
+          {/* Backend & Databases */}
+          <div>
+            <h3 className="text-lg font-semibold text-foreground mb-3">Backend & Databases</h3>
+            <div className="flex flex-wrap gap-2">
+              {["Spring Boot", "Spring", "Node.js", "MongoDB", "MySQL", "Firebase", "DynamoDB"].map((skill, index) => (
+                <Badge key={index} variant="secondary" className="px-3 py-1">
+                  {skill}
+                </Badge>
+              ))}
+            </div>
+          </div>
+
+          {/* Cloud & DevOps */}
+          <div>
+            <h3 className="text-lg font-semibold text-foreground mb-3">Cloud & DevOps</h3>
+            <div className="flex flex-wrap gap-2">
+              {["AWS", "Azure", "Docker", "Prometheus"].map((skill, index) => (
+                <Badge key={index} variant="secondary" className="px-3 py-1">
+                  {skill}
+                </Badge>
+              ))}
+            </div>
+          </div>
+
+          {/* Data & Analytics */}
+          <div>
+            <h3 className="text-lg font-semibold text-foreground mb-3">Data & Analytics</h3>
+            <div className="flex flex-wrap gap-2">
+              {["Databricks", "Azure Data Factory", "Azure Synapse"].map((skill, index) => (
+                <Badge key={index} variant="secondary" className="px-3 py-1">
+                  {skill}
+                </Badge>
+              ))}
+            </div>
+          </div>
+
+          {/* Tools & Others */}
+          <div>
+            <h3 className="text-lg font-semibold text-foreground mb-3">Tools & Others</h3>
+            <div className="flex flex-wrap gap-2">
+              {["Linux", "Figma"].map((skill, index) => (
+                <Badge key={index} variant="secondary" className="px-3 py-1">
+                  {skill}
+                </Badge>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
