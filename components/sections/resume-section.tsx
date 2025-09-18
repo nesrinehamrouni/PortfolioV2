@@ -1,6 +1,5 @@
 import type React from "react"
-import { Briefcase, GraduationCap, Code } from "lucide-react"
-import { Badge } from "@/components/ui/badge"
+import { Briefcase, GraduationCap } from "lucide-react"
 
 export function ResumeSection() {
   const experiences = [
@@ -45,49 +44,6 @@ export function ResumeSection() {
     },
   ]
 
-  const skills = [
-    // Programming Languages
-    "Python",
-    "JavaScript",
-    "TypeScript",
-    "Java",
-    "Dart",
-    "C++",
-    "C",
-    "PHP",
-    
-    // Frontend Frameworks
-    "React",
-    "Next.js",
-    "Angular",
-    "Flutter",
-    "React Native",
-    
-    // Backend & Databases
-    "Spring Boot",
-    "Spring",
-    "Node.js",
-    "Laravel",
-    "MongoDB",
-    "MySQL",
-    "Firebase",
-    "DynamoDB",
-    
-    // Cloud & DevOps
-    "AWS",
-    "Azure",
-    "Docker",
-    "Prometheus",
-    
-    // Data & Analytics
-    "Databricks",
-    "Azure Data Factory",
-    "Azure Synapse",
-    
-    // Tools & Others
-    "Linux",
-    "Figma"
-  ]
 
   const TimelineItem = ({
     children,
@@ -155,87 +111,6 @@ export function ResumeSection() {
         </div>
       </div>
 
-      {/* Skills Section */}
-      <div>
-        <div className="flex items-center gap-3 mb-8">
-          <Code className="w-6 h-6 text-accent" />
-          <h2 className="text-2xl font-bold">Skills & Technologies</h2>
-        </div>
-        
-        <div className="space-y-6">
-          {/* Programming Languages */}
-          <div>
-            <h3 className="text-lg font-semibold text-foreground mb-3">Programming Languages</h3>
-            <div className="flex flex-wrap gap-2">
-              {["Python", "JavaScript", "TypeScript", "Java", "Dart", "C++", "C"].map((skill, index) => (
-                <Badge key={index} variant="secondary" className="px-3 py-1">
-                  {skill}
-                </Badge>
-              ))}
-            </div>
-          </div>
-
-          {/* Frontend & Mobile */}
-          <div>
-            <h3 className="text-lg font-semibold text-foreground mb-3">Frontend & Mobile</h3>
-            <div className="flex flex-wrap gap-2">
-              {["React", "Next.js", "Angular", "Flutter", "React Native"].map((skill, index) => (
-                <Badge key={index} variant="secondary" className="px-3 py-1">
-                  {skill}
-                </Badge>
-              ))}
-            </div>
-          </div>
-
-          {/* Backend & Databases */}
-          <div>
-            <h3 className="text-lg font-semibold text-foreground mb-3">Backend & Databases</h3>
-            <div className="flex flex-wrap gap-2">
-              {["Spring Boot", "Spring", "Node.js", "MongoDB", "MySQL", "Firebase", "DynamoDB"].map((skill, index) => (
-                <Badge key={index} variant="secondary" className="px-3 py-1">
-                  {skill}
-                </Badge>
-              ))}
-            </div>
-          </div>
-
-          {/* Cloud & DevOps */}
-          <div>
-            <h3 className="text-lg font-semibold text-foreground mb-3">Cloud & DevOps</h3>
-            <div className="flex flex-wrap gap-2">
-              {["AWS", "Azure", "Docker", "K3s", "Prometheus"].map((skill, index) => (
-                <Badge key={index} variant="secondary" className="px-3 py-1">
-                  {skill}
-                </Badge>
-              ))}
-            </div>
-          </div>
-
-          {/* Data & Analytics */}
-          <div>
-            <h3 className="text-lg font-semibold text-foreground mb-3">Data & Analytics</h3>
-            <div className="flex flex-wrap gap-2">
-              {["Databricks", "Azure Data Factory", "Azure Synapse"].map((skill, index) => (
-                <Badge key={index} variant="secondary" className="px-3 py-1">
-                  {skill}
-                </Badge>
-              ))}
-            </div>
-          </div>
-
-          {/* Tools & Others */}
-          <div>
-            <h3 className="text-lg font-semibold text-foreground mb-3">Tools & Others</h3>
-            <div className="flex flex-wrap gap-2">
-              {["Linux", "Figma", "UI/UX Design"].map((skill, index) => (
-                <Badge key={index} variant="secondary" className="px-3 py-1">
-                  {skill}
-                </Badge>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   )
 }

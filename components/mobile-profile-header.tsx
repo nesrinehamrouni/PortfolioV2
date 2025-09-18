@@ -1,7 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { Mail, MapPin, Linkedin, Github, Instagram, Twitter, ChevronDown, ChevronUp } from "lucide-react"
+import { Mail, MapPin, Linkedin, Github, FileText, ChevronDown, ChevronUp } from "lucide-react"
+import { BiLogoPinterest } from "react-icons/bi"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
@@ -9,11 +10,15 @@ export function MobileProfileHeader() {
   const [isExpanded, setIsExpanded] = useState(false)
 
   const socialLinks = [
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Github, href: "#", label: "GitHub" },
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Twitter, href: "#", label: "Twitter" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/nesrine-hamrouni-6a03ab248", label: "LinkedIn" },
+    { icon: Github, href: "https://github.com/nesrinehamrouni", label: "GitHub" },
+    { icon: BiLogoPinterest, href: "https://fr.pinterest.com/lifes_palette", label: "Pinterest" },
   ]
+
+  const handleResumeClick = () => {
+    // Open CV PDF in a new tab
+    window.open("/cv/Resume-NesrineHamrouni.pdf", "_blank")
+  }
 
   return (
     <div className="md:hidden bg-card border border-border rounded-2xl p-6 mx-4 mt-4 mb-6">
@@ -28,8 +33,12 @@ export function MobileProfileHeader() {
         </div>
         <div className="flex-1">
           <h1 className="font-playfair text-xl font-bold text-foreground mb-1">Nesrine Hamrouni</h1>
-          <div className="bg-muted rounded-lg px-3 py-1 inline-block">
-            <span className="text-sm font-medium text-muted-foreground">Freshly Graduated SE & Creative Developer</span>
+          <div className="bg-muted rounded-lg px-3 py-1 inline-block mb-2">
+            <span className="text-sm font-medium text-muted-foreground">Freshly Graduated SWE & Creative Developer</span>
+          </div>
+          <div className="space-y-1">
+            <div className="text-xs text-accent font-medium">Full-Stack Developer</div>
+            <div className="text-xs text-accent font-medium">Java Spring Boot & Next.js</div>
           </div>
         </div>
         <Button
@@ -45,7 +54,7 @@ export function MobileProfileHeader() {
       {/* Expandable Contact Details */}
       <div className={cn(
         "overflow-hidden transition-all duration-300 ease-in-out",
-        isExpanded ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        isExpanded ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
       )}>
         <div className="space-y-4 pt-4 border-t border-border">
           {/* Contact Info */}
@@ -76,11 +85,26 @@ export function MobileProfileHeader() {
                 className="h-9 w-9 text-muted-foreground hover:text-foreground hover:bg-muted"
                 asChild
               >
-                <a href={social.href} aria-label={social.label}>
+                <a 
+                  href={social.href} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                >
                   <social.icon className="h-4 w-4" />
                 </a>
               </Button>
             ))}
+            {/* Resume Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="h-9 w-9 text-muted-foreground hover:text-foreground hover:bg-muted"
+              onClick={handleResumeClick}
+              aria-label="Download Resume"
+            >
+              <FileText className="h-4 w-4" />
+            </Button>
           </div>
         </div>
       </div>

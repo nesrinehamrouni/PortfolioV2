@@ -64,7 +64,11 @@ export function Sidebar({ isMobileMenuOpen, setIsMobileMenuOpen }: SidebarProps)
               />
             </div>
             <h1 className="font-playfair text-2xl font-bold text-sidebar-foreground mb-2">Nesrine Hamrouni</h1>
-            <p className="text-sidebar-foreground/70 text-sm">Freshly Graduated SE & Creative Developer</p>
+            <p className="text-sidebar-foreground/70 text-sm">Freshly Graduated SWE & Creative Developer</p>
+            <div className="mt-3 space-y-1">
+              <div className="text-xs text-accent font-medium">Full-Stack Developer</div>
+              <div className="text-xs text-accent font-medium">Java Spring Boot & Next.js</div>
+            </div>
           </div>
 
           {/* Contact Info */}
