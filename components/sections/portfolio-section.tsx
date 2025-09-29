@@ -6,13 +6,22 @@ import { ExternalLink, Github } from "lucide-react"
 export function PortfolioSection() {
   const projects = [
     {
+      title: "GitHub Portfolio Analyzer",
+      category: "Web Application",
+      description:
+        "Built a web app analyzing GitHub repositories, providing AI-driven insights on code quality, commits, and contributors. Developed real-time dashboards and visualizations for repository metrics using scalable back-end APIs.",
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Google Gemini AI", "GitHub API"],
+      liveUrl: "https://github-analyzerr.vercel.app",
+      githubUrl: "https://github.com/nesrinehamrouni/github-analyzer",
+    },
+    {
       title: "Portfolio Website",
       category: "Web Application",
       description:
         "A modern, responsive portfolio website built with Next.js and TypeScript, featuring a clean design and smooth animations. Showcases my projects, skills, and experience with a focus on user experience and performance optimization.",
       technologies: ["Next.js", "TypeScript", "Tailwind CSS", "React", "Vite"],
       liveUrl: "#",
-      githuburl: "#",
+      githubUrl: "#",
     },
     {
       title: "Move2Cloud Chatbot",
@@ -25,7 +34,7 @@ export function PortfolioSection() {
       title: "StageHub",
       category: "Web Application",
       description:
-        "Dédié à l'administration de l'ENICAR afin d'automatiser le processus des affectations des stages de l'école. Développement d'une plateforme en Angular et Spring Boot en collaboration avec une équipe de 5 personnes.",
+        "Dedicated to ENICAR administration to automate the internship assignment process for the school. Developed a platform using Angular and Spring Boot in collaboration with a team of 5 people.",
       technologies: ["Angular", "Spring Boot", "Java", "TypeScript", "MySQL"],
       githubUrl: "https://github.com/nesrinehamrouni/GestionStage",
     },
@@ -33,7 +42,7 @@ export function PortfolioSection() {
       title: "Sketchify",
       category: "Desktop Application",
       description:
-        "Conception d'une application desktop robuste utilisant Java pour créer des diagrammes UML. Mise en œuvre de l'interface utilisateur en utilisant JavaFX assurant un design élégant et intuitif.",
+        "Designed a robust desktop application using Java to create UML diagrams. Implemented the user interface using JavaFX ensuring an elegant and intuitive design.",
       technologies: ["Java", "JavaFX", "UML", "Desktop App"],
       githubUrl: "https://github.com/raymanaa/sketchify-fx",
     },
@@ -41,7 +50,7 @@ export function PortfolioSection() {
       title: "NinjaPulse",
       category: "Web Application",
       description:
-        "Développement d'un site répertoriant les organisations, en utilisant Angular et Node.js comme technologies fullstack pour aider les personnes dans le besoin. Utilisation de Docker pour containeriser l'application.",
+        "Developed a website listing organizations, using Angular and Node.js as fullstack technologies to help people in need. Used Docker to containerize the application.",
       technologies: ["Angular", "Node.js", "Docker", "TypeScript", "MongoDB"],
       liveUrl: "https://ninjapulse.vercel.app",
       githubUrl: "https://github.com/nesrinehamrouni/NinjaPulse-DonationSiteDirectory",
