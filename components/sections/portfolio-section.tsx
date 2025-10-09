@@ -24,7 +24,7 @@ export function PortfolioSection() {
       technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Google Gemini AI", "GitHub API"],
       liveUrl: "https://github-analyzerr.vercel.app",
       githubUrl: "https://github.com/nesrinehamrouni/github-analyzer",
-      image: "/portfolio/githubanalyzer.png",
+      image: "/portfolio/githubanalyzer.jpg",
     },
     {
       title: "Portfolio Website",
@@ -34,7 +34,7 @@ export function PortfolioSection() {
       technologies: ["Next.js", "TypeScript", "Tailwind CSS", "React", "Vite"],
       liveUrl: "#",
       githubUrl: "#",
-      image: "/portfolio/portfolio.png",
+      image: "/portfolio/portfolio.jpg",
     },
     {
       title: "Move2Cloud Chatbot",
@@ -131,12 +131,13 @@ export function PortfolioSection() {
             className="overflow-hidden bg-card border-border group hover:shadow-lg transition-all duration-300"
           >
             {project.image && (
-              <div className="relative h-48 w-full overflow-hidden">
+              <div className="relative h-64 w-full overflow-hidden bg-muted/20 flex items-center justify-center">
                 <Image
                   src={project.image}
                   alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  width={400}
+                  height={200}
+                  className="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
             )}
