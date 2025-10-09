@@ -2,9 +2,20 @@ import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Github } from "lucide-react"
+import Image from "next/image"
 
 export function PortfolioSection() {
   const projects = [
+    {
+      title: "AI Gmail Reply Assistant",
+      category: "Web Application",
+      description:
+        "An AI-powered Gmail assistant that automatically generates contextual email replies using Google's Gemini 2.0 Flash model. Features OAuth2 authentication, real-time email sync, customizable tone settings, and a complete approval workflow for intelligent email management.",
+      technologies: ["Next.js 14", "TypeScript", "Google Gemini AI", "Gmail API", "Supabase", "OAuth2"],
+      liveUrl: "https://gmail-assistant-nine.vercel.app",
+      githubUrl: "#",
+      image: "/portfolio/gmailreply.png",
+    },
     {
       title: "GitHub Portfolio Analyzer",
       category: "Web Application",
@@ -13,6 +24,7 @@ export function PortfolioSection() {
       technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Google Gemini AI", "GitHub API"],
       liveUrl: "https://github-analyzerr.vercel.app",
       githubUrl: "https://github.com/nesrinehamrouni/github-analyzer",
+      image: "/portfolio/githubanalyzer.png",
     },
     {
       title: "Portfolio Website",
@@ -22,6 +34,7 @@ export function PortfolioSection() {
       technologies: ["Next.js", "TypeScript", "Tailwind CSS", "React", "Vite"],
       liveUrl: "#",
       githubUrl: "#",
+      image: "/portfolio/portfolio.png",
     },
     {
       title: "Move2Cloud Chatbot",
@@ -29,6 +42,7 @@ export function PortfolioSection() {
       description:
         "Developed a multi-cloud management platform with a natural language chatbot interface. Built a secure, scalable web app using Next.js for the frontend and Spring Boot for the backend, ensuring secure and scalable operations across 3 different cloud providers. Implemented encrypted session tracking, cloud account linking, and a real-time cloud news dashboard.",
       technologies: ["Next.js", "Spring Boot", "Multi-cloud", "Natural Language Processing", "Real-time Dashboard"],
+      image: "/portfolio/m2cchatbot.png",
     },
     {
       title: "StageHub",
@@ -116,6 +130,16 @@ export function PortfolioSection() {
             key={index}
             className="overflow-hidden bg-card border-border group hover:shadow-lg transition-all duration-300"
           >
+            {project.image && (
+              <div className="relative h-48 w-full overflow-hidden">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+            )}
             <div className="p-6">
               <div className="flex items-center justify-between mb-3">
                 <Badge variant="outline" className="text-xs">
