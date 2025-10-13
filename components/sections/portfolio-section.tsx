@@ -1,10 +1,34 @@
+"use client"
+
+import { useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ExternalLink, Github } from "lucide-react"
+import { ExternalLink, Github, ChevronDown, ChevronUp } from "lucide-react"
 import Image from "next/image"
 
 export function PortfolioSection() {
+  const [expandedProjects, setExpandedProjects] = useState<Set<number>>(new Set())
+
+  const toggleExpanded = (index: number) => {
+    const newExpanded = new Set(expandedProjects)
+    if (newExpanded.has(index)) {
+      newExpanded.delete(index)
+    } else {
+      newExpanded.add(index)
+    }
+    setExpandedProjects(newExpanded)
+  }
+
+  const truncateDescription = (description: string, maxLength: number = 120) => {
+    if (description.length <= maxLength) return description
+    return description.substring(0, maxLength).trim() + "..."
+  }
+
+  const shouldShowReadMore = (description: string) => {
+    return description.length > 120
+  }
+
   const projects = [
     {
       title: "AI Gmail Reply Assistant",
@@ -17,7 +41,7 @@ export function PortfolioSection() {
       image: "/portfolio/gmailreply.png",
     },
     {
-      title: "GitHub Portfolio Analyzer",
+      title: "AI GitHub Portfolio Analyzer",
       category: "Web Application",
       description:
         "Built a web app analyzing GitHub repositories, providing AI-driven insights on code quality, commits, and contributors. Developed real-time dashboards and visualizations for repository metrics using scalable back-end APIs.",
@@ -45,6 +69,15 @@ export function PortfolioSection() {
       image: "/portfolio/m2cchatbot.png",
     },
     {
+      title: "NinjaPulse",
+      category: "Web Application",
+      description:
+        "Developed a website listing organizations, using Angular and Node.js as fullstack technologies to help people in need. Used Docker to containerize the application.",
+      technologies: ["Angular", "Node.js", "Docker", "TypeScript", "MongoDB"],
+      liveUrl: "https://ninjapulse.vercel.app",
+      githubUrl: "https://github.com/nesrinehamrouni/NinjaPulse-DonationSiteDirectory",
+    },
+    {
       title: "StageHub",
       category: "Web Application",
       description:
@@ -59,15 +92,6 @@ export function PortfolioSection() {
         "Designed a robust desktop application using Java to create UML diagrams. Implemented the user interface using JavaFX ensuring an elegant and intuitive design.",
       technologies: ["Java", "JavaFX", "UML", "Desktop App"],
       githubUrl: "https://github.com/raymanaa/sketchify-fx",
-    },
-    {
-      title: "NinjaPulse",
-      category: "Web Application",
-      description:
-        "Developed a website listing organizations, using Angular and Node.js as fullstack technologies to help people in need. Used Docker to containerize the application.",
-      technologies: ["Angular", "Node.js", "Docker", "TypeScript", "MongoDB"],
-      liveUrl: "https://ninjapulse.vercel.app",
-      githubUrl: "https://github.com/nesrinehamrouni/NinjaPulse-DonationSiteDirectory",
     },
     {
       title: "WiBlog",
@@ -124,57 +148,97 @@ export function PortfolioSection() {
       </div>
 
       {/* Projects Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {projects.map((project, index) => (
-          <Card
-            key={index}
-            className="overflow-hidden bg-card border-border group hover:shadow-lg transition-all duration-300"
-          >
-            {project.image && (
-              <div className="relative h-64 w-full overflow-hidden bg-muted/20 flex items-center justify-center">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  width={400}
-                  height={200}
-                  className="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
-            )}
-            <div className="p-6">
-              <div className="flex items-center justify-between mb-3">
-                <Badge variant="outline" className="text-xs">
-                  {project.category}
-                </Badge>
-                <div className="flex gap-2">
-                  {project.liveUrl && (
-                    <Button size="sm" variant="secondary" className="h-8 w-8 p-0" asChild>
-                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" aria-label="View live project">
-                        <ExternalLink className="h-4 w-4" />
-                      </a>
-                    </Button>
-                  )}
-                  {project.githubUrl && (
-                    <Button size="sm" variant="secondary" className="h-8 w-8 p-0" asChild>
-                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label="View source code">
-                        <Github className="h-4 w-4" />
-                      </a>
-                    </Button>
-                  )}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+        {projects.map((project, index) => {
+          const isExpanded = expandedProjects.has(index)
+          const shouldTruncate = shouldShowReadMore(project.description)
+          const displayDescription = isExpanded || !shouldTruncate 
+            ? project.description 
+            : truncateDescription(project.description)
+
+          return (
+            <Card
+              key={index}
+              className="overflow-hidden bg-card border-border group hover:shadow-lg transition-all duration-300"
+            >
+              {project.image && (
+                <div className="relative h-48 sm:h-56 md:h-64 w-full overflow-hidden bg-muted/20 flex items-center justify-center">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    width={400}
+                    height={200}
+                    className="w-full h-full object-cover sm:object-contain transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+              )}
+              <div className="p-4 sm:p-6">
+                <div className="flex items-center justify-between mb-3">
+                  <Badge variant="outline" className="text-xs px-2 py-1">
+                    {project.category}
+                  </Badge>
+                  <div className="flex gap-1 sm:gap-2">
+                    {project.liveUrl && (
+                      <Button size="sm" variant="secondary" className="h-7 w-7 sm:h-8 sm:w-8 p-0" asChild>
+                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" aria-label="View live project">
+                          <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4" />
+                        </a>
+                      </Button>
+                    )}
+                    {project.githubUrl && (
+                      <Button size="sm" variant="secondary" className="h-7 w-7 sm:h-8 sm:w-8 p-0" asChild>
+                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" aria-label="View source code">
+                          <Github className="h-3 w-3 sm:h-4 sm:w-4" />
+                        </a>
+                      </Button>
+                    )}
+                  </div>
+                </div>
+                <h3 className="font-playfair text-lg sm:text-xl font-semibold text-foreground mb-3 leading-tight">
+                  {project.title}
+                </h3>
+                <div className="mb-4">
+                  {/* Desktop: Always show full description */}
+                  <p className="text-muted-foreground text-sm sm:text-base leading-relaxed hidden md:block">
+                    {project.description}
+                  </p>
+                  
+                  {/* Mobile/Tablet: Show truncated with read more */}
+                  <div className="md:hidden">
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {displayDescription}
+                    </p>
+                    {shouldTruncate && (
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => toggleExpanded(index)}
+                        className="mt-2 p-0 h-auto text-accent hover:text-accent/80 font-medium"
+                      >
+                        {isExpanded ? (
+                          <>
+                            Read less <ChevronUp className="h-3 w-3 ml-1" />
+                          </>
+                        ) : (
+                          <>
+                            Read more <ChevronDown className="h-3 w-3 ml-1" />
+                          </>
+                        )}
+                      </Button>
+                    )}
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                  {project.technologies.map((tech, techIndex) => (
+                    <Badge key={techIndex} variant="secondary" className="text-xs px-2 py-1">
+                      {tech}
+                    </Badge>
+                  ))}
                 </div>
               </div>
-              <h3 className="font-playfair text-xl font-semibold text-foreground mb-3">{project.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-4">{project.description}</p>
-              <div className="flex flex-wrap gap-2">
-                {project.technologies.map((tech, techIndex) => (
-                  <Badge key={techIndex} variant="secondary" className="text-xs">
-                    {tech}
-                  </Badge>
-                ))}
-              </div>
-            </div>
-          </Card>
-        ))}
+            </Card>
+          )
+        })}
       </div>
     </div>
   )
