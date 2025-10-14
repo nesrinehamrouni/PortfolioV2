@@ -36,7 +36,7 @@ export function PortfolioSection() {
       description:
         "An AI-powered Gmail assistant that automatically generates contextual email replies using Google's Gemini 2.0 Flash model. Features OAuth2 authentication, real-time email sync, customizable tone settings, and a complete approval workflow for intelligent email management.",
       technologies: ["Next.js 14", "TypeScript", "Google Gemini AI", "Gmail API", "Supabase", "OAuth2"],
-      liveUrl: "https://gmail-assistant-nine.vercel.app",
+      liveUrl: "https://gmail-assistant.hamrouni.me",
       githubUrl: "#",
       image: "/portfolio/gmailreply.png",
     },
