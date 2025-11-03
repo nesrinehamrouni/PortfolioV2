@@ -21,7 +21,7 @@ export function Sidebar({ isMobileMenuOpen, setIsMobileMenuOpen }: SidebarProps)
 
   const handleResumeClick = () => {
     // Open CV PDF in a new tab
-    window.open('/cv/Resume-NesrineHamrouni.pdf', '_blank')
+    window.open('/cv/Resume-Nesrine Hamrouni.pdf', '_blank')
   }
 
   return (
@@ -75,7 +75,14 @@ export function Sidebar({ isMobileMenuOpen, setIsMobileMenuOpen }: SidebarProps)
           <div className="space-y-4 mb-8">
             <div className="flex items-start gap-3 text-sm text-sidebar-foreground/70">
               <Mail className="h-4 w-4 text-accent mt-0.5 flex-shrink-0" />
-              <span className="break-words">nesrine.hamrouni@enicar.ucar.tn</span>
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=nesrine.alhamrouni@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="break-words hover:text-accent transition-colors duration-200 underline-offset-2 hover:underline"
+              >
+                nesrine.alhamrouni@gmail.com
+              </a>
             </div>
             <div className="flex items-center gap-3 text-sm text-sidebar-foreground/70">
               <MapPin className="h-5 w-5 text-accent" />

@@ -31,12 +31,20 @@ export function PortfolioSection() {
 
   const projects = [
     {
+      title: "WhatsApp Integration & Chat Platform",
+      category: "Web Application",
+      description:
+        "Freelance full-stack project developed for Upwork client. Collaborated with the client to design and manage the system architecture, ensuring smooth integration, scalability, and reliable performance. Integrated WhatsApp messaging via Baileys and Node.js, allowing users to connect their WhatsApp accounts through QR code scanning and send messages directly from the app. Developed an internal chat system using Java (Spring Boot) for the backend to enable secure, real-time communication between users.",
+      technologies: ["Node.js", "Baileys", "Java", "Spring Boot", "WhatsApp API", "Real-time Chat", "QR Code Authentication"],
+      image: "/portfolio/whatsapp-chat.png",
+    },
+    {
       title: "AI Gmail Reply Assistant",
       category: "Web Application",
       description:
         "An AI-powered Gmail assistant that automatically generates contextual email replies using Google's Gemini 2.0 Flash model. Features OAuth2 authentication, real-time email sync, customizable tone settings, and a complete approval workflow for intelligent email management.",
       technologies: ["Next.js 14", "TypeScript", "Google Gemini AI", "Gmail API", "Supabase", "OAuth2"],
-      liveUrl: "https://gmail-assistant.hamrouni.me",
+      liveUrl: "https://gmail-assistant.hamrouni.dev",
       githubUrl: "#",
       image: "/portfolio/gmailreply.png",
     },
@@ -76,6 +84,7 @@ export function PortfolioSection() {
       technologies: ["Angular", "Node.js", "Docker", "TypeScript", "MongoDB"],
       liveUrl: "https://ninjapulse.vercel.app",
       githubUrl: "https://github.com/nesrinehamrouni/NinjaPulse-DonationSiteDirectory",
+      image: "/portfolio/ninjapulse.png",
     },
     {
       title: "StageHub",

@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://hamrouni.me",
+    url: "https://hamrouni.dev",
     siteName: "Nesrine Hamrouni Portfolio",
     title: "Nesrine Hamrouni - Full-Stack Developer",
     description: "Portfolio of Nesrine Hamrouni - Junior Software Engineer specializing in Java Spring Boot & Next.js. Freshly graduated from National School of Engineers of Carthage.",
