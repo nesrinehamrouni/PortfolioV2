@@ -5,6 +5,16 @@ import { Badge } from "@/components/ui/badge"
 export function ResumeSection() {
   const experiences = [
     {
+      title: "Freelance Full-Stack Engineer",
+      company: "Upwork — Remote",
+      period: "Oct 2024",
+      description:
+        "Collaborated with the client to design and manage the system architecture, ensuring smooth integration, scalability, and reliable performance.<br><br>" +
+        "✨ Highlights:<br><br>" +
+        "• Integrated WhatsApp messaging via Baileys and Node.js, allowing users to connect their WhatsApp accounts through QR code scanning and send messages directly from the app.<br><br>" +
+        "• Developed an internal chat system using Java (Spring Boot) for the backend to enable real-time messaging between users."
+    },
+    {
       title: "Software Engineer Intern",
       company: "Move2Cloud — Remote, France",
       period: "Feb 2025 – June 2025",
@@ -14,7 +24,7 @@ export function ResumeSection() {
           "• Built real-time dashboards for cloud news & updates.<br><br>" +
           "• Implemented encrypted sessions and cloud account linking for reliability.<br><br>" +
           "• Engineered DynamoDB schemas and tables for efficient storage of accounts, sessions, and activity logs.<br><br>" +
-          "• Applied prompt engineering to optimize the AI chatbot’s responses."
+          "• Applied prompt engineering to optimize the AI chatbot's responses."
     },
     {
       title: "Mobile Engineer Intern",
@@ -52,28 +62,29 @@ export function ResumeSection() {
     "Java",
     "JavaScript",
     "TypeScript",
-    "Dart",
     "Python",
     "C++",
     "C",
+    "Dart",
     "PHP",
     
     // Frontend Frameworks
     "Next.js",
+    "React",
     "Angular",
     "Flutter",
-    "React",
     "React Native",
     
     // Backend & Databases
-    "Spring Boot",
     "Spring",
+    "Spring Boot",
     "Node.js",
-    "Laravel",
-    "MongoDB",
     "MySQL",
-    "Firebase",
     "DynamoDB",
+    "Supabase",
+    "MongoDB",
+    "Firebase",
+    "Laravel",
     
     // Cloud & DevOps
     "AWS",

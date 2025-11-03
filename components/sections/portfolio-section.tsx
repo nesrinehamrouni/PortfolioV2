@@ -45,7 +45,6 @@ export function PortfolioSection() {
         "An AI-powered Gmail assistant that automatically generates contextual email replies using Google's Gemini 2.0 Flash model. Features OAuth2 authentication, real-time email sync, customizable tone settings, and a complete approval workflow for intelligent email management.",
       technologies: ["Next.js 14", "TypeScript", "Google Gemini AI", "Gmail API", "Supabase", "OAuth2"],
       liveUrl: "https://gmail-assistant.hamrouni.dev",
-      githubUrl: "#",
       image: "/portfolio/gmailreply.png",
     },
     {
@@ -65,7 +64,6 @@ export function PortfolioSection() {
         "A modern, responsive portfolio website built with Next.js and TypeScript, featuring a clean design and smooth animations. Showcases my projects, skills, and experience with a focus on user experience and performance optimization.",
       technologies: ["Next.js", "TypeScript", "Tailwind CSS", "React", "Vite"],
       liveUrl: "#",
-      githubUrl: "#",
       image: "/portfolio/portfolio.jpg",
     },
     {
