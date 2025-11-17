@@ -21,7 +21,7 @@ export function Sidebar({ isMobileMenuOpen, setIsMobileMenuOpen }: SidebarProps)
 
   const handleResumeClick = () => {
     // Open CV PDF in a new tab
-    window.open('/cv/Resume-Nesrine Hamrouni.pdf', '_blank')
+    window.open('/cv/Resume-NesrineHamrouni.pdf', '_blank')
   }
 
   return (
